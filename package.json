@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/pseudocc/pseudoc.site#readme",
   "dependencies": {
+    "@koa/router": "^10.1.1",
     "dotenv": "^10.0.0",
-    "koa": "^2.13.1"
+    "koa": "^2.13.1",
+    "koa-favicon": "^2.1.0"
   }
 }

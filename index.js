@@ -6,11 +6,20 @@ const assert = require('assert');
 if (require.main == module) {
   const env = try_get_env();
   const Koa = require('koa');
-  const app = new Koa();
+  const Router = require('@koa/router');
+  const favicon = require('koa-favicon');
   
-  app.use(async ctx => {
+  const app = new Koa();
+  const router = new Router();
+
+  router.get('/', async ctx => {
     ctx.body = 'Hello, world!';
   });
+
+  app
+    .use(favicon(path.join(__dirname, 'assets', 'pseudoc.ico')))
+    .use(router.routes())
+    .use(router.allowedMethods());
   
   assert.ok(env.HTTP_PORT !== undefined);
   const http_server = http.createServer(app.callback());
