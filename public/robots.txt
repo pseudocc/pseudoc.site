@@ -1,0 +1,6 @@
+User-agent:
+Allow: /
+Allow: /swordjs
+Disallow: /swordjs/signup
+Disallow: /swordjs/login
+Disallow: /swordjs/user/*

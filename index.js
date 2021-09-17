@@ -9,6 +9,7 @@ if (require.main == module) {
   const Router = require('@koa/router');
 
   const favicon = require('koa-favicon');
+  const serve = require('koa-static');
   const proxy = require('koa-proxy');
 
   const app = new Koa();
@@ -26,6 +27,7 @@ if (require.main == module) {
 
   app
     .use(favicon(path.join(__dirname, 'assets', 'pseudoc.ico')))
+    .use(serve(path.join(__dirname, 'public')))
     .use(router.routes())
     .use(router.allowedMethods());
 
