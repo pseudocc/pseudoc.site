@@ -49,8 +49,8 @@ if (require.main == module) {
 }
 
 function try_get_env() {
-  const load_opt = process.env.NODE_ENV == 'debug'
-    ? { path: path.join(__dirname, '.env.debug') }
+  const load_opt = process.env.NODE_ENV == 'development'
+    ? { path: path.join(__dirname, '.env.dev') }
     : undefined;
   const env_output = require('dotenv').config(load_opt);
   if (env_output.error) {
